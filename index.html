@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Mail - Artisan Web Weaver</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Ephemeral Inbox</h1>
+        <p>Your temporary, disposable email address.</p>
+    </header>
+
+    <main>
+        <section class="card" id="email-generator">
+            <label for="temp-email-address">Your Temporary Email Address:</label>
+            <div class="email-display">
+                <input type="text" id="temp-email-address" value="Generating..." readonly>
+                <button id="copy-button" title="Copy to Clipboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+            </div>
+            <div class="action-buttons">
+                <button id="refresh-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path></svg>
+                    Refresh <span id="countdown">(15)</span>
+                </button>
+                <button id="new-address-button">New Address</button>
+            </div>
+        </section>
+
+        <section class="card" id="inbox-section">
+            <h2>Inbox</h2>
+            <div id="inbox-container">
+                <ul id="email-list">
+                    <li class="placeholder">Waiting for emails...</li>
+                </ul>
+                <div id="email-viewer">
+                    <div id="viewer-placeholder">
+                        <p>Select an email from the list to view its content.</p>
+                    </div>
+                    <div id="viewer-content" class="hidden">
+                        <div class="email-header">
+                            <p><strong>From:</strong> <span id="email-from"></span></p>
+                            <p><strong>Subject:</strong> <span id="email-subject"></span></p>
+                            <p><strong>Date:</strong> <span id="email-date"></span></p>
+                        </div>
+                        <hr>
+                        <div id="email-body"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Crafted by the Artisan Web Weaver</p>
+    </footer>
+
+</body>
+</html>
