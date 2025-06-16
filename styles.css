@@ -1,0 +1,236 @@
+:root {
+    --primary-color: #007BFF;
+    --primary-hover: #0056b3;
+    --background-color: #f4f7f6;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --light-text-color: #666666;
+    --border-color: #dddddd;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header, footer {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--light-text-color);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+main {
+    width: 100%;
+    max-width: 900px;
+}
+
+.card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+}
+
+#email-generator label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.email-display {
+    display: flex;
+    gap: 0.5rem;
+}
+
+#temp-email-address {
+    flex-grow: 1;
+    font-family: monospace;
+    font-size: 1.1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background-color: #e9ecef;
+    color: var(--text-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+#copy-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+#copy-button:hover {
+    background-color: #5a6268;
+}
+
+.action-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+#refresh-button, #new-address-button {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+#refresh-button:hover, #new-address-button:hover {
+    background-color: var(--primary-hover);
+}
+
+#countdown {
+    font-weight: 400;
+}
+
+#inbox-section h2 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+#inbox-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    min-height: 300px;
+    max-height: 50vh;
+}
+
+#email-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    border-right: 1px solid var(--border-color);
+    padding-right: 1rem;
+}
+
+#email-list li {
+    padding: 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#email-list li:hover {
+    background-color: #e9ecef;
+}
+
+#email-list li.selected {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-hover);
+}
+
+#email-list li.placeholder {
+    color: var(--light-text-color);
+    text-align: center;
+    cursor: default;
+}
+
+#email-list li .from {
+    font-weight: 600;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#email-list li .subject {
+    font-size: 0.9rem;
+    color: var(--light-text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#email-list li.selected .subject {
+    color: #e0e0e0;
+}
+
+
+#email-viewer {
+    overflow-y: auto;
+    padding-left: 1rem;
+}
+
+#viewer-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--light-text-color);
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#viewer-content .email-header {
+    margin-bottom: 1rem;
+}
+#viewer-content p {
+    margin: 0.25rem 0;
+}
+
+#email-body {
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    #inbox-container {
+        grid-template-columns: 1fr;
+        max-height: none;
+    }
+    #email-list {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding-right: 0;
+        padding-bottom: 1rem;
+        max-height: 250px;
+    }
+    #email-viewer {
+        padding-left: 0;
+        min-height: 200px;
+    }
+}
